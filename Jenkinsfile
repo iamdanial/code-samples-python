@@ -31,23 +31,5 @@ pipeline {
       }
     }
 
-    stage('Deliver') {
-      agent {
-        docker {
-          image 'cdrx/pyinstaller-linux:python2'
-        }
-
-      }
-      post {
-        success {
-          archiveArtifacts 'dist/multiply2vals'
-        }
-
-      }
-      steps {
-        sh 'echo "Job Completed"'
-      }
-    }
-
   }
 }
